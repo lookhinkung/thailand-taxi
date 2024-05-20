@@ -5,8 +5,8 @@
 <div class="room-area pt-100 pb-70 section-bg" style="background-color:#ffffff">
     <div class="container">
         <div class="section-title text-center">
-            <span class="sp-color">ROOMS</span>
-            <h2>Our Rooms & Rates</h2>
+            <span class="sp-color">Fleets</span>
+            <h2>Our Fleets</h2>
         </div>
         <div class="row pt-45">
 

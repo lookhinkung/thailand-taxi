@@ -15,7 +15,7 @@
 <div class="banner-area" style="height: 480px;">
     <div class="container">
         <div class="banner-content">
-            <h1>Discover a Hotel & Resort to Book a Suitable Room</h1>
+            <h1>Premium Taxi Cab Transger Services in Thailand</h1>
        
         </div>
     </div>

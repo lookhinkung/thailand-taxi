@@ -45,7 +45,8 @@ class CarTypeController extends Controller
             'message' => 'Car Type inserted Successfully',
             'alert-type' => 'success'
         );
-        return redirect()->route('car.type.list')->with($notification);
+        // return redirect()->route('car.type.list')->with($notification);
+        return redirect()->route('edit.car', ['id' => $cartype_id])->with($notification);
 
     } // End Method
 

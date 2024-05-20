@@ -26,15 +26,19 @@ class CarController extends Controller
 
         // dd($multiimgs,$editData);
         return view("backend.allcar.car.edit_car", compact('editData', 'multiimgs', 'allcarNo'));
+        
+
 
 
     }//End method
 
-    public function AddcarType($id)
-    {//
-        $editData = Car::findOrFail($id);
-        return view("backend.allcar.cartype.view_cartype", compact('editData'));
-    }//End method
+    // public function AddcarType($id)
+    // {//
+    //     $editData = Car::findOrFail($id);
+    //     $multiimgs = MultiImage::where("car_id", $id)->get();
+    //     $allcarNo = CarNumber::where("car_id", $id)->get();
+    //     return view("backend.allcar.cartype.add_cartype", compact('editData', 'multiimgs', 'allcarNo'));
+    // }//End method
 
 
 
@@ -65,7 +69,7 @@ class CarController extends Controller
         //Update Multi Image
         if ($car->save()) {
             $files = $request->multi_img;
-            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            // $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
 
             if (!empty($files)) {
                 $subimage = MultiImage::where('car_id', $id)->get()->toArray();
@@ -75,10 +79,11 @@ class CarController extends Controller
             if (!empty($files)) {
                 foreach ($files as $file) {
 
-                    $imgName = date('YmdHi') . $file->getClientOriginalExtension();
+                    $imgName = date('YmdHi') . $file->getClientOriginalName();
+
                     $file->move('upload/carimg/multi_img/', $imgName);
                     $subimage['multi_img'] = $imgName;
-
+                    
                     $subimage = new MultiImage;
                     $subimage->car_id = $car->id;
                     $subimage->multi_img = $imgName;
@@ -140,6 +145,7 @@ class CarController extends Controller
             'message' => 'Car Number Added Successfully',
             'alert-type' => 'success'
         );
+        
         return redirect()->back()->with($notification);
 
     }//End method
