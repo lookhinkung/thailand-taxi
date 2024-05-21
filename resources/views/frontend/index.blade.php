@@ -1,25 +1,25 @@
 @extends('frontend.main_master')
 @section('style')
-    <style>
-        .eq_card{
-            display: flex;
-            flex-direction: column;
-        }
-        .eq_card .card_{
-            flex: 1;
-        }
-        .form-control {
-            max-height: none;
-            position: relative; /* Ensure the container can use z-index */
-            z-index: 9999;
-        }
-        .col-lg-2, .col-md-2 {
-            position: relative; /* Ensure the container can use z-index */
-            z-index: 9999; /* A very high value to ensure it is on top */
-            height: auto;
-        }
-    </style>
-    </style>
+<style>
+    .eq_card {
+        display: flex;
+        flex-direction: column;
+    }
+    .eq_card .card_ {
+        flex: 1;
+    }
+    .banner-form-area {
+        position: relative;
+        z-index: 100;
+    }
+    .room-area {
+        position: relative;
+        z-index: 1;
+    }
+    .dropdown-menu {
+        z-index: 2000;
+    }
+</style>
 @endsection
 @section('main')
 <!-- Banner Area -->
@@ -67,16 +67,9 @@
                         <div class="form-group">
                             <label>GUESTS</label>
                             <select name="persion" class="form-control">
-                                <option>01</option>
-                                <option>02</option>
-                                <option>03</option>
-                                <option>04</option>
-                                <option>05</option>
-                                <option>06</option>
-                                <option>07</option>
-                                <option>08</option>
-                                <option>09</option>
-                                <option>10</option>
+                                @for ($i = 1; $i <= 10; $i++)
+                                    <option>{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
+                                @endfor
                             </select>	
                         </div>
                     </div>

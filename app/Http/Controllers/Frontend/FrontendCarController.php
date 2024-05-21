@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 use App\Models\BookArea;
@@ -76,8 +77,43 @@ class FrontendCarController extends Controller
 
     }//End Method
 
+    public function SearchCarDetails(Request $request,$id){
 
+        $request->flash();
+        $cardetails = Car::find($id);
+        $multiImage = MultiImage::where('car_id',$id)->get();
+        $otherCars = Car::where('id','!=' ,$id)->orderBy('id','DESC')->limit(2)->get();
+        $car_id = $id;
+        return view("frontend.cars.search_car_details", compact("cardetails","multiImage","otherCars","car_id"));
 
+    }//End Method
+    public function CheckCarAvailability(Request $request){
+        $sdate = date('Y-m-d',strtotime($request->check_in));
+        $edate = date('Y-m-d',strtotime($request->check_out));
+        $alldate = Carbon::create($edate)->subDay();
+        $d_period = CarbonPeriod::create($sdate,$alldate);
+        $dt_array = [];
+        foreach ($d_period as $period) {
+            array_push($dt_array, date('Y-m-d', strtotime($period)));
+        }
 
+        $check_date_booking_ids = CarBookedDate::whereIn('book_date',$dt_array)->distinct()->pluck('booking_id')->toArray();
+
+        $car = Car::withCount('car_numbers')->find($request->car_id);
+
+        $bookings = Booking::withCount('assign_cars')->whereIn('id', $check_date_booking_ids)
+        ->where('car_id',$car->id)->get()->toArray();
+
+        $total_book_car = array_sum(array_column($bookings,'assign_cars_count'));
+
+        $av_car = @$car->car_numbers_count-$total_book_car;
+
+        $toDate = Carbon::parse($request->check_in);
+        $fromDate = Carbon::parse($request->check_out);
+        $nights = $toDate->diffInDays($fromDate);
+
+        return response()->json(['available_car'=>$av_car,'total_nights'=>$nights]);
+
+    }//End Method
 
 }

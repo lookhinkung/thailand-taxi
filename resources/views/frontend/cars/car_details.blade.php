@@ -208,7 +208,7 @@
                         <div class="row align-items-center">
                             <div class="col-lg-5 col-md-4 p-0">
                                 <div class="room-card-img">
-                                    <a href="{{url('cars/details/'.$item->id)}}">
+                                    <a href="room-details.html">
                                         <img src="{{asset('upload/carimg/'.$item->image)}}" alt="Images">
                                     </a>
                                 </div>

@@ -54,7 +54,8 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-5 col-md-4 p-0">
                                         <div class="room-card-img">
-                                            <a href="{{ url('cars/details/' . $item->id) }}">
+                                            <a href="{{ route('search_car_details',$item->id.'?check_in='
+                                                .old('check_in').'&check_out='.old('check_out').'&persion='.old('persion')) }}">
                                                 <img src="{{ asset('upload/carimg/' . $item->image) }}" alt="Images" style="width:100%; height:auto;">
                                             </a>
                                         </div>
@@ -62,7 +63,9 @@
                                     <div class="col-lg-7 col-md-8 p-0">
                                         <div class="room-card-content">
                                             <h3>
-                                                <a href="{{ url('cars/details/' . $item->id) }}">{{ $item['type']['name'] }}</a>
+                    <a href="{{ route('search_car_details',$item->id.'?check_in='
+                        .old('check_in').'&check_out='.old('check_out').'&persion='.old('persion')) }}">
+                    {{ $item['type']['name'] }}</a>
                                             </h3>
                                             <span>{{ $item->short_desc }}</span>
                                             <p>{{ $item->description }}</p>
@@ -70,7 +73,8 @@
                                                 <li><i class='bx bx-user'></i> {{ $item->total_passenger }} Passengers</li>
                                                 <li><i class='bx bx-expand'></i> {{ $item->car_capacity }}</li>
                                             </ul>
-                                            <a href="{{ url('cars/details/' . $item->id) }}" class="book-more-btn">
+                                            <a href="{{ route('search_car_details',$item->id.'?check_in='
+                                                .old('check_in').'&check_out='.old('check_out').'&persion='.old('persion')) }}" class="book-more-btn">
                                                 Book Now
                                             </a>
                                         </div>

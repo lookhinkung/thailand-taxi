@@ -110,6 +110,9 @@ Route::controller(FrontendCarController::class)->group(function () {
     Route::get('/cars/details/{id}','CarDetailsPage'); 
     Route::get('/aboutus','AboutUs')->name('about.us'); 
     Route::get('/bookings','BookingSearch')->name('booking.search'); 
+    Route::get('/search/car/details/{id}','SearchCarDetails')->name('search_car_details');
+
+    Route::get('/check_car_availability','CheckCarAvailability')->name('check_car_availability');
     
   
 });
