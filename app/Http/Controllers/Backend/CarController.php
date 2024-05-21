@@ -54,6 +54,7 @@ class CarController extends Controller
         $car->name_car = $request->name_car;
         $car->short_desc = $request->short_desc;
         $car->description = $request->description;
+        $car->status = 1;
 
         //Upload Single Image
         if ($request->file('image')) {

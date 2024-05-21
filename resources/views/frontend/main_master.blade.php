@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/theme-dark.css') }}">
     <!-- Toaster CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-    <title>Admin Dashboard</title>
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     

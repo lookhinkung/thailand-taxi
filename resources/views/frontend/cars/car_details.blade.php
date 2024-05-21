@@ -1,4 +1,15 @@
 @extends('frontend.main_master')
+@section('style')
+    <style>
+        .eq_card{
+            display: flex;
+            flex-direction: column;
+        }
+        .eq_card .card_{
+            flex: 1;
+        }
+    </style>
+@endsection
 @section('main')
     <!-- Inner Banner -->
     <div class="inner-banner inner-bg10">
@@ -182,48 +193,50 @@
     <!-- car Details Area End -->
 
     <!-- car Details Other -->
-    <div class="car-details-other pb-70">
+    <div class="room-details-other pb-70">
         <div class="container">
-            <div class="car-details-text">
-                <h2>Our Related Offer</h2>
+            <div class="room-details-text">
+                <h2>Other Fleets</h2>
             </div>
 
             <div class="row ">
-                <div class="col-lg-6">
-                    <div class="car-card-two">
+                @foreach ($otherCars as $item)
+                    
+                
+                <div class="col-lg-6 eq_card">
+                    <div class="room-card-two card_">
                         <div class="row align-items-center">
                             <div class="col-lg-5 col-md-4 p-0">
-                                <div class="car-card-img">
-                                    <a href="car-details.html">
-                                        <img src="assets/img/car/car-style-img1.jpg" alt="Images">
+                                <div class="room-card-img">
+                                    <a href="{{url('cars/details/'.$item->id)}}">
+                                        <img src="{{asset('upload/carimg/'.$item->image)}}" alt="Images">
                                     </a>
                                 </div>
                             </div>
 
                             <div class="col-lg-7 col-md-8 p-0">
-                                <div class="car-card-content">
+                                <div class="room-card-content">
                                     <h3>
-                                        <a href="car-details.html">Luxury car</a>
+                                        <a href="{{url('cars/details/'.$item->id)}}">{{$item['type']['name']}}</a>
                                     </h3>
-                                    <span>320 / Per Night </span>
-                                    <div class="rating">
+                                    <span>{{$item->short_desc}}</span>
+                                    {{-- <div class="rating">
                                         <i class='bx bxs-star'></i>
                                         <i class='bx bxs-star'></i>
                                         <i class='bx bxs-star'></i>
                                         <i class='bx bxs-star'></i>
                                         <i class='bx bxs-star'></i>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, adipiscing elit. Suspendisse et faucibus felis, sed
-                                        pulvinar purus.</p>
+                                    </div> --}}
+                                    <p>{{$item->description}}</p>
                                     <ul>
-                                        <li><i class='bx bx-user'></i> 4 Person</li>
-                                        <li><i class='bx bx-expand'></i> 35m2 / 376ft2</li>
+                                        <li><i class='bx bx-user'></i> {{$item->total_passenger}} Passengers</li>
+                                        <li><i class='bx bx-expand'></i> {{ $item->car_capacity}}</li>
                                     </ul>
 
-                                    <ul>
+                                    {{-- <ul>
                                         <li><i class='bx bx-show-alt'></i> Sea Balcony</li>
                                         <li><i class='bx bxs-hotel'></i> Kingsize / Twin</li>
-                                    </ul>
+                                    </ul> --}}
 
                                     <a href="car-details.html" class="book-more-btn">
                                         Book Now
@@ -233,53 +246,14 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
 
-                <div class="col-lg-6">
-                    <div class="car-card-two">
-                        <div class="row align-items-center">
-                            <div class="col-lg-5 col-md-4 p-0">
-                                <div class="car-card-img">
-                                    <a href="car-details.html">
-                                        <img src="assets/img/car/car-style-img2.jpg" alt="Images">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-7 col-md-8 p-0">
-                                <div class="car-card-content">
-                                    <h3>
-                                        <a href="car-details.html">Single car</a>
-                                    </h3>
-                                    <span>300 / Per Night </span>
-                                    <div class="rating">
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                        <i class='bx bxs-star'></i>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, adipiscing elit. Suspendisse et faucibus felis, sed
-                                        pulvinar purus.</p>
-                                    <ul>
-                                        <li><i class='bx bx-user'></i> 1 Person</li>
-                                        <li><i class='bx bx-expand'></i> 25m2 / 276ft2</li>
-                                    </ul>
-
-                                    <ul>
-                                        <li><i class='bx bx-show-alt'></i> Sea Balcony</li>
-                                        <li><i class='bx bxs-hotel'></i> Smallsize / Twin</li>
-                                    </ul>
-
-                                    <a href="car-details.html" class="book-more-btn">
-                                        Book Now
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
     <!-- car Details Other End -->
 @endsection
+
+
+

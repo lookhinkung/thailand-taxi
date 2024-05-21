@@ -30,7 +30,7 @@
                                 </h3>
                                 <span>{{$item->short_desc}}</span>
                                 
-                                <p> {{$item->description}} </p>
+                                <p>{{$item->description}}</p>
                                 <ul>
                                     <li><i class='bx bx-user'></i> {{$item->total_passenger}} Passengers</li>
                                     <li><i class='bx bx-expand'></i> {{ $item->car_capacity}}</li>

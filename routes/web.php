@@ -109,6 +109,7 @@ Route::controller(FrontendCarController::class)->group(function () {
     Route::get('/cars','AllFrontendCarList')->name('fcar.all'); 
     Route::get('/cars/details/{id}','CarDetailsPage'); 
     Route::get('/aboutus','AboutUs')->name('about.us'); 
+    Route::get('/bookings','BookingSearch')->name('booking.search'); 
     
   
 });

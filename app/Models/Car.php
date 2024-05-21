@@ -11,7 +11,9 @@ class Car extends Model
     protected $guarded = [];
     public function type(){
         return $this->belongsTo(CarType::class, "cartype_id",'id');
-        
-        
+    }
+
+    public function car_numbers(){
+        return $this->hasMany(CarNumber::class, 'car_id')->where('status','Active');
     }
 }

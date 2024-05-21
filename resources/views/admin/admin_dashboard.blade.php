@@ -90,9 +90,11 @@
     <script>
         new PerfectScrollbar(".app-container")
     </script>
+    <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="{{ asset('backend/assets/js/code.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+
     <!--toast JS-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
@@ -121,9 +123,9 @@
 
     <!--dataTable JS-->
     <script src="
-            {{ asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+                {{ asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="
-            {{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+                {{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('#example').DataTable();
@@ -131,16 +133,16 @@
     </script>
     <!--dataTable JS-->
 
-    
+
     <script src="/path/or/uri/to/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-      tinymce.init({
-        selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
-        plugins: 'code table lists',
-        toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table',
-        license_key: 'gpl|<andcy42j7zctj74y4bg6xw4xd238icqo2ggq1rwp312rbdw1>'
+        tinymce.init({
+            selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
+            plugins: 'code table lists',
+            toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table',
+            license_key: 'gpl|<andcy42j7zctj74y4bg6xw4xd238icqo2ggq1rwp312rbdw1>'
 
-      });
+        });
     </script>
 
 
