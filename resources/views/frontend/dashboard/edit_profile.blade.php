@@ -59,8 +59,8 @@
 
         <div class="col-lg-6 col-md-6">
             <div class="form-group">
-                <label>Address <span class="required">*</span></label>
-                <input type="text" name="address" class="form-control" value="{{$profileData->address}}">
+                <label>Nationality <span class="required">*</span></label>
+                <input type="text" name="nationality" class="form-control" value="{{$profileData->address}}">
             </div>
         </div>
 

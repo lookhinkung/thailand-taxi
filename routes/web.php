@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\CarTypeController;
 use App\Http\Controllers\Backend\CarController;
 use App\Http\Controllers\Frontend\FrontendCarController;
+use App\Http\Controllers\Frontend\BookingController;
 
 
 // Route::get('/', function () {
@@ -116,3 +117,20 @@ Route::controller(FrontendCarController::class)->group(function () {
     
   
 });
+
+
+//Auth middleware user must have login for access this route
+Route::middleware(['auth'])->group(function () {
+
+    Route::controller(BookingController::class)->group(function () {
+
+        //Checkout all route
+        Route::get('/checkout/','Checkout')->name('checkout'); 
+        Route::post('/booking/store/','BookingStore')->name('user_booking_store'); 
+        Route::post('/checkout/store/','CheckoutStore')->name('checkout.store');
+        
+        
+      
+    });
+
+});//End group Auh Middleware

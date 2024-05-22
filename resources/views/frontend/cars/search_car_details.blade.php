@@ -37,8 +37,10 @@
                     <div class="car-details-side">
                         <div class="side-bar-form">
                             <h3>Booking Sheet </h3>
-<form action="" method="post" id="bk_form">
+
+<form action="{{route('user_booking_store',$cardetails->id)}}" method="post" id="bk_form">
     @csrf
+
     <input type="hidden" name="car_id" value="{{ $cardetails->id }}">
     <div class="row align-items-center">
         <div class="col-lg-12">
@@ -72,7 +74,7 @@
                 <label>Numbers of Guest</label>
                 <select class="form-control" name="persion" id="nmbr_person">
                     @for ($i = 1; $i <= 10; $i++)
-                    <option {{old('persion')==$i ?'selected':''}} value="o{{$i}}">{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
+                    <option {{old('persion')==$i ?'selected':''}} value="{{$i}}">{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
                 @endfor
                     
                     
@@ -262,66 +264,7 @@
             </div>
         </div>
     </div>
-    <!-- car Details Other End -->
-    {{-- <script>
-        $(document).ready(function () {
-           var check_in = "{{ old('check_in') }}";
-           var check_out = "{{ old('check_out') }}";
-           var car_id = "{{ $car_id }}";
-           if (check_in != '' && check_out != ''){
-              getAvaility(check_in, check_out, car_id);
-           }
-           $("#check_out").on('change', function () {
-              var check_out = $(this).val();
-              var check_in = $("#check_in").val();
-              if(check_in != '' && check_out != ''){
-                 getAvaility(check_in, check_out, car_id);
-              }
-           });
-           $(".number_of_cars").on('change', function () {
-              var check_out = $("#check_out").val();
-              var check_in = $("#check_in").val();
-              if(check_in != '' && check_out != ''){
-                 getAvaility(check_in, check_out, car_id);
-              }
-           });
-        });
-        function getAvaility(check_in, check_out, car_id) {
-           $.ajax({
-              url: "{{ route('check_car_availability') }}",
-              data: {car_id:car_id, check_in:check_in, check_out:check_out},
-              success: function(data){
-                 $(".available_car").html('Availability : <span class="text-success">'+data['available_car']+' cars</span>');
-                 $("#available_car").val(data['available_car']);
-                 price_calculate(data['total_nights']);
-              }
-           });
-        }
-        function price_calculate(total_nights){
-           var car_price = $("#car_price").val();
-           var discount_p = $("#discount_p").val();
-           var select_car = $("#select_car").val();
-           var sub_total = car_price * total_nights * parseInt(select_car);
-           var discount_price = (parseInt(discount_p)/100)*sub_total;
-           $(".t_subtotal").text(sub_total);
-           $(".t_discount").text(discount_price);
-           $(".t_g_total").text(sub_total-discount_price);
-        }
-        $("#bk_form").on('submit', function () {
-           var av_car = $("#available_car").val();
-           var select_car = $("#select_car").val();
-           if (parseInt(select_car) >  av_car){
-              alert('Sorry, you select maximum number of car');
-              return false;
-           }
-           var nmbr_person = $("#nmbr_person").val();
-           var total_adult = $("#total_adult").val();
-           if(parseInt(nmbr_person) > parseInt(total_adult)){
-              alert('Sorry, you select maximum number of person');
-              return false;
-           }
-        })
-     </script> --}}
+    
      <script>
     $(document).ready(function () {
        var check_in = "{{ old('check_in') }}";

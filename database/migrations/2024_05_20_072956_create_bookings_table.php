@@ -33,10 +33,10 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->string('country')->nullable(); 
-            $table->string('state')->nullable();
-            $table->string('zip_code')->nullable();
-            $table->string('address')->nullable();
+            $table->string('pick_from')->nullable(); 
+            $table->string('drop_to')->nullable();
+            $table->string('msg')->nullable();
+            $table->string('nationality')->nullable();
 
             $table->string('code')->nullable();
             $table->integer('status')->default(1);

@@ -245,8 +245,9 @@
     // Datetimepicker
     $('#datetimepicker').datepicker();
 
+
     // Datetimepicker
-    $('#datetimepicker-check').datepicker();
+    $('#datetimepicker-check').datepicker();4
     $('.dt_picker').datepicker({
         dateFormat: 'yy-mm-dd',
         autoclose: true,

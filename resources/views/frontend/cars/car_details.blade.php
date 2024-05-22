@@ -64,26 +64,13 @@
 
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label>Numbers of Persons</label>
-                                            <select class="form-control">
-                                                <option>01</option>
-                                                <option>02</option>
-                                                <option>03</option>
-                                                <option>04</option>
-                                                <option>05</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label>Numbers of cars</label>
-                                            <select class="form-control">
-                                                <option>01</option>
-                                                <option>02</option>
-                                                <option>03</option>
-                                                <option>04</option>
-                                                <option>05</option>
+                                            <label>Numbers of Guest</label>
+                                            <select class="form-control" name="persion" id="nmbr_person">
+                                                @for ($i = 1; $i <= 10; $i++)
+                                                <option {{old('persion')==$i ?'selected':''}} value="{{$i}}">{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
+                                            @endfor
+                                                
+                                                
                                             </select>
                                         </div>
                                     </div>
@@ -137,7 +124,7 @@
                                             <ul>
                                                 <li>
                                                     <a href="#"> <b>Seats : </b> {{ $cardetails->total_passenger }}
-                                                        Seats <i class='bx bxs-cloud-download'></i></a>
+                                                        Passenger <i class='bx bxs-cloud-download'></i></a>
                                                 </li>
                                                 <li>
                                                     <a href="#"> <b>Capacity : </b> {{ $cardetails->car_capacity }} <i

@@ -35,7 +35,7 @@
                             <h2>User Dashboard </h2>
                         </div>
 
-                        <div class="service-article-content">
+                        {{-- <div class="service-article-content">
                             <div class="row">
 
                                 <div class="col-md-4">
@@ -75,7 +75,7 @@
 
                             </div>
 
-                        </div>
+                        </div> --}}
 
 
                     </div>

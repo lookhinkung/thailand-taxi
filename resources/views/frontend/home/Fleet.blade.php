@@ -37,7 +37,7 @@
                                 </ul>
 
                                 
-                                <a href="room-details.html" class="book-more-btn">
+                                <a href="{{url('cars/details/'.$item->id)}}" class="book-more-btn">
                                     Book Now
                                 </a>
                             </div>
