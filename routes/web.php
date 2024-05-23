@@ -67,6 +67,16 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     });
 
 
+//Admin Booking All Route
+Route::controller(BookingController::class)->group(function () {
+
+    Route::get('/booking/list','BookingList')->name('booking.list'); 
+    Route::get('/edit/booking/{id}','EditBooking')->name('edit_booking'); 
+
+});
+
+
+
 });//End of Group Middleware
 
 
@@ -104,6 +114,7 @@ Route::controller(CarController::class)->group(function () {
     
   
 });
+
 
 Route::controller(FrontendCarController::class)->group(function () {
 

@@ -84,10 +84,10 @@
 
                                 <div class="col-lg-4 col-md-4">
                                     <div class="form-group">
-                                        <label>Pick up date</label>
+                                        <label>Pick up Time</label>
                                         <div class="input-group">
-                                            <input autocomplete="off" type="text" required name="check_in"
-                                                class="form-control dt_picker" value="{{ $book_data['check_in'] }}">
+                                            <input autocomplete="off" type="time" required name="check_in"
+                                            class="form-control">
                                             <span class="input-group-addon"></span>
                                         </div>
                                     </div>

@@ -80,10 +80,24 @@
                     
                 </select>
             </div>
+
+            <div class="form-group">
+                <label>Car number</label>
+                <select class="form-control" name="persion" id="nmbr_person">
+                    @for ($i = 1; $i <= 10; $i++)
+                    <option {{old('persion')==$i ?'selected':''}} value="{{$i}}">{{ str_pad($i, 2, '0', STR_PAD_LEFT) }}</option>
+                @endfor
+                    
+                    
+                </select>
+            </div>
             <input type="hidden" name="available_car" id="available_car">
             <p class="available_car"></p>
             {{-- <p class="text text-success">Fleet Available</p> --}}
         </div>
+
+
+
 
             <div class="col-lg-12">
                 <table class="table">
