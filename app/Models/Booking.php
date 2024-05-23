@@ -8,8 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     use HasFactory;
-    protected $guarded = [];
-
+    protected $fillable = [
+        'user_id',
+        'nationality',
+        'person',
+        'name',
+        'email',
+        'phone',
+        'check_in',
+        'pick_from',
+        'drop_to',
+        'msg',
+    ];
     public function assign_cars(){
         return $this->hasMany(BookingCarList::class,'booking_id');
     }

@@ -76,9 +76,9 @@
                                     </div>
 
                                     <div class="col-lg-12 col-md-12">
-                                        <button type="submit" class="default-btn btn-bg-three border-radius-5">
+                                        <a href="{{route('checkout')}}"  type="submit" class="default-btn btn-bg-three border-radius-5">
                                             Book Now
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </form>

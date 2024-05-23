@@ -34,7 +34,7 @@
                             <h3 class="title">Booking Details</h3>
 
                             <div class="row">
-                                <div class="col-lg-12 col-md-12">
+                                <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Nationality <span class="required">*</span></label>
                                         <input type="text" name="nationality" value="{{ \Auth::user()->nationality }}"
@@ -42,17 +42,21 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 col-md-6">
+                                {{-- <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Title<span class="required">*</span></label>
-                                        <select class="form-control" name="person" id="nmbr_person">
+                                        <input type="text" class="form-control" name="title">
+                                        <select class="form-control" name="title">
                                             <option value="" disabled selected>Select</option>
                                             <option value="">Mr.</option>
                                             <option value="">Mrs.</option>
                                             <option value="">Ms.</option>
                                         </select>
+                                        @if ($errors->has('pick_from'))
+                                            <div class="text-danger">{{ $errors->first('pick_from') }}</div>
+                                        @endif
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
@@ -135,7 +139,7 @@
                                 </div>
 
 
-                                <p>Session Value : {{ json_encode(session('book_date')) }}</p>
+                                {{-- <p>Session Value : {{ json_encode(session('book_date')) }}</p> --}}
 
 
                             </div>
@@ -175,14 +179,7 @@
                                                 <p>{{ $nights }} Days</p>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <p>Total Passenger</p>
-                                            </td>
-                                            <td style="text-align: right">
-                                                <p>{{ $persion }} Person</p>
-                                            </td>
-                                        </tr>
+                                        
 
                                     </table>
 
@@ -192,7 +189,7 @@
                     </div>
                     <div class="col-lg-8 col-md-8">
 
-                        <<div class="payment-box">
+                        <div class="payment-box">
                             <button type="submit" class="order-btn">Place to Order</button>
                     </div>
 

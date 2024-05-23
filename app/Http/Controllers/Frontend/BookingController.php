@@ -83,7 +83,6 @@ class BookingController extends Controller
             
             'name' => 'required',
             'email' => 'required',
-            'title' => 'required',
             'nationality' => 'required',
             'check_in' => 'required',
             'pick_from' => 'required',
@@ -120,7 +119,10 @@ class BookingController extends Controller
         $data->code = $code;
         $data->status = 0;
         $data->created_at = Carbon::now();
+        
+
         $data->save();
+        
 
 
         $sdate = date('Y-m-d', strtotime($book_data['check_in']));
