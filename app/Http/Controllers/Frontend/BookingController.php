@@ -80,13 +80,14 @@ class BookingController extends Controller
     }//End Method
 
 
-    public function CheckoutStore(Request $request)
-{
+    public function CheckoutStore(Request $request){
+    // dd($request->all());
     $this->validate($request, [
         'name' => 'required',
         'email' => 'required',
         'nationality' => 'required',
         'check_in' => 'required',
+        
         'pick_from' => 'required',
         'phone' => 'required',
         'drop_to' => 'required',
@@ -100,28 +101,29 @@ class BookingController extends Controller
 
     $car = Car::find($book_data['car_id']);
 
-    // Get the last used code from the database
-    $lastCode = Booking::orderBy('id', 'desc')->first()->code ?? 'AA000000000';
+        // Get the last used code from the database
+        $lastCode = Booking::orderBy('id', 'desc')->first()->code ?? 'AA000000000';
 
-    // Extract prefix and numerical part from the last code
-    preg_match('/([A-Z]{2})(\d{9})/', $lastCode, $matches);
-    $prefix = $matches[1];
-    $numPart = intval($matches[2]);
+        // Extract prefix and numerical part from the last code
+        preg_match('/([A-Z]{2})(\d{9})/', $lastCode, $matches);
+        $prefix = $matches[1];
+        $numPart = intval($matches[2]);
 
-    // Increment numerical part
-    $numPart++;
+        // Increment numerical part
+        $numPart++;
 
-    // If numerical part exceeds 999999999, increment prefix
-    if ($numPart > 999999999) {
-        $prefix++;
-        $numPart = 1;
-    }
+        // If numerical part exceeds 999999999, increment prefix
+        if ($numPart > 999999999) {
+            $prefix++;
+            $numPart = 1;
+        }
 
-    // Format numerical part with leading zeros
-    $numPart = str_pad($numPart, 9, '0', STR_PAD_LEFT);
+        // Format numerical part with leading zeros
+        $numPart = str_pad($numPart, 9, '0', STR_PAD_LEFT);
 
-    // Concatenate prefix and numerical part
-    $code = $prefix . $numPart;
+        // Concatenate prefix and numerical part
+        $code = $prefix . $numPart;
+
 
     $data = new Booking();
     $data->car_id = $car->id;
@@ -137,6 +139,7 @@ class BookingController extends Controller
     $data->nationality = $request->nationality;
     $data->pick_from = $request->pick_from;
     $data->drop_to = $request->drop_to;
+
     $data->msg = $request->msg;
     $data->code = $code;
     $data->status = 0;

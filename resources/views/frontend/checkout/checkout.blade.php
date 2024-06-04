@@ -86,8 +86,9 @@
                                     <div class="form-group">
                                         <label>Pick up Time</label>
                                         <div class="input-group">
-                                            <input autocomplete="off" type="time" required name="check_in"
-                                            class="form-control">
+                                            <input autocomplete="off" type="text" required name="check_in"
+                                                class="form-control dt_picker" value="{{ $book_data['check_in'] }}">
+                                        
                                             <span class="input-group-addon"></span>
                                         </div>
                                     </div>

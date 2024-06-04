@@ -278,6 +278,8 @@
         console.log('ok')
     });
 
+    
+
     // WOW JS
     new WOW().init();
 
@@ -401,3 +403,12 @@ function toggleTheme() {
       document.getElementById('slider').checked = true;
     }
 })();
+
+new Picker(document.querySelector('.js-time-picker'), {
+  format: 'HH:mm',
+  headers: true,
+  text: {
+    title: 'Pick a time',
+  },
+});
+

@@ -34,7 +34,7 @@
     <!-- Toaster CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     {{-- Time picker --}}
-    <link rel="stylesheet" href="C:\xampp\htdocs\Pro\thailand-taxi\public\frontend\assets\css\tpicker.css">
+  
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
     
@@ -101,9 +101,7 @@
     <!-- Custom JS -->
     <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
     {{-- Time picker JS --}}
-    <script type="text/javascript" src="C:\xampp\htdocs\Pro\thailand-taxi\public\frontend\assets\js\tpicker.js"></script>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
 
     <script>
      @if(Session::has('message'))

@@ -26,7 +26,7 @@ return new class extends Migration
             $table->integer('discount')->default(0);
             $table->float('total_price')->default(0);
 
-            $table->string('payment_method')->nullable();
+            
             $table->string('transation_id')->nullable();
             $table->string('payment_status')->nullable();
 
@@ -49,6 +49,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bookings');
+        Schema::dropIfExists('bookings'); 
     }
 };

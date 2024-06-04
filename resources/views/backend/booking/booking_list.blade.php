@@ -39,6 +39,7 @@
                                 <th>Check In/Out</th>
                                 <th>Total Day</th>
                                 <th>Guest</th>
+                                <th>Pick Up</th>
                                 <th>Status</th>
                                 <th>Action</th>
 
@@ -56,7 +57,13 @@
                                     / <br> <span class="badge bg-warning text-dark"> {{$item->check_out}} </span></td>
                                     <td>{{$item->total_night}}  </td>
                                     <td> {{$item->persion}}</td>
-                                    <td>{{$item->status == '1'}} </td>
+                                    
+                                    <td>@if($item->status == '1')
+                                    <span class="text-success">Active</span>
+                                        @else
+                                        <span class="text-danger">Pending</span>
+                                        @endif
+                                </td>
                                     <td> {{$item->total_night}}</td>
                                     <td> </td>
 

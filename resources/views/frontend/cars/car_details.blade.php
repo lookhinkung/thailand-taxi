@@ -225,7 +225,7 @@
                                         <li><i class='bx bxs-hotel'></i> Kingsize / Twin</li>
                                     </ul> --}}
 
-                                    <a href="car-details.html" class="book-more-btn">
+                                    <a href="{{route('search_car_details',$item->id)}}" class="book-more-btn">
                                         Book Now
                                     </a>
                                 </div>
